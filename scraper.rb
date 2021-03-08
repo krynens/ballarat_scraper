@@ -1,12 +1,15 @@
 require 'scraperwiki'
 require 'mechanize'
 
-url   = "https://totaljoy.co/read"
+url   = "https://eservices.ballarat.vic.gov.au/ePathway/Production/Web/Generalenquiry/enquirylists.aspx"
 agent = Mechanize.new
 page  = agent.get(url)
 
-summary = page.search('div.summary-excerpt').text()
-print(summary)
+button = form.button_with(id: 'ctl00_MainBodyContent_mDataList_ctl06_mDataGrid_ctl02_ctl00')
+form.click_button(button)
+
+submit = form.button_with(id: 'ctl00_MainBodyContent_mContinueButton')
+form.click_button(submit)
 
 # page.search("div.item-list a").each do |a|
 #   page.search("tr.odd, tr.even").each do |tr|
