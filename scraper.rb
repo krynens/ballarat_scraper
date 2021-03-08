@@ -6,7 +6,7 @@ agent = Mechanize.new
 page  = agent.get(url)
 
 form = page.form('aspnetForm')
-pp form.submit
+pp form.buttons[2]
 # form.radiobuttons[0].click
 
 
