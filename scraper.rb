@@ -16,8 +16,8 @@ rows = table.search('tr.ContentPanel', 'tr.AlternateContentPanel')
 
 print(rows)
 
-# page.search("div.item-list a").each do |a|
-#   page.search("tr.odd, tr.even").each do |tr|
+for row in rows do
+  address = row.search('td')[1].text
 #     record = {
 #       "council_reference" => tr.search("td")[1].inner_text.strip,
 #       "address" => tr.search("td")[0].inner_text.strip + ", VIC",
