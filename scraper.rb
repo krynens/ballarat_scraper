@@ -11,7 +11,7 @@ form.radiobuttons[0].click
 go = form.buttons[2]
 
 page = agent.submit(form, form.buttons[2])
-table = page.search('tbody')
+table = page.search('table.ContentPanel')
 rows = table.search('tr')
 
 print(table)
