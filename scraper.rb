@@ -1,5 +1,6 @@
 require 'scraperwiki'
 require 'mechanize'
+require 'titlecase'
 
 FileUtils.touch('data.sqlite')
 
