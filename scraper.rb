@@ -5,11 +5,8 @@ url   = "https://eservices.ballarat.vic.gov.au/ePathway/Production/Web/Generalen
 agent = Mechanize.new
 page  = agent.get(url)
 
-button = form.button_with(id: 'ctl00_MainBodyContent_mDataList_ctl06_mDataGrid_ctl02_ctl00')
-form.click_button(button)
-
-submit = form.button_with(id: 'ctl00_MainBodyContent_mContinueButton')
-form.click_button(submit)
+form = page.forms.first
+print(form)
 
 # page.search("div.item-list a").each do |a|
 #   page.search("tr.odd, tr.even").each do |tr|
