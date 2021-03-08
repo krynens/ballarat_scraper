@@ -5,7 +5,7 @@ url   = "https://totaljoy.co/read"
 agent = Mechanize.new
 page  = agent.get(url)
 
-title = page.search('div.summary-title').text()
+title = page.search('div.summary-title').text().strip()
 print(title)
 
 # page.search("div.item-list a").each do |a|
