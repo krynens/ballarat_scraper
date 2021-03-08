@@ -13,7 +13,8 @@ go = form.buttons[2]
 page = agent.submit(form, form.buttons[2])
 form = page.form('aspnetForm')
 
-puts form.fields
+row = form.search('tr.ContentPanel')
+put row
 
 # page.search("div.item-list a").each do |a|
 #   page.search("tr.odd, tr.even").each do |tr|
