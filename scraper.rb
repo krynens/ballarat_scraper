@@ -6,7 +6,10 @@ agent = Mechanize.new
 page  = agent.get(url)
 
 form = page.form('aspnetForm')
-pp form.radiobuttons[0]
+pp form
+# form.radiobuttons[0].click
+
+
 # page.search("div.item-list a").each do |a|
 #   page.search("tr.odd, tr.even").each do |tr|
 #     record = {
