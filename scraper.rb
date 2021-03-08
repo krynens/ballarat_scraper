@@ -1,7 +1,9 @@
 require 'scraperwiki'
 require 'mechanize'
 
-today = Time.now.strftime('%Y-%m%d')
+FileUtils.touch('data.sqlite')
+
+today = Time.now.strftime('%Y-%m-%d')
 
 url   = "https://eservices.ballarat.vic.gov.au/ePathway/Production/Web/Generalenquiry/enquirylists.aspx"
 agent = Mechanize.new
@@ -18,28 +20,12 @@ rows = table.search('tr.ContentPanel', 'tr.AlternateContentPanel')
 
 for row in rows do
   suburb = row.search('td')[2].text.strip
-  address = row.search('td')[1].text + ', ' + suburb
-  council_reference = row.search('td')[0].text.strip
-  date_scraped = today
-  description = row.search('td')[3].text.strip
-  info_url = 'https://eservices.ballarat.vic.gov.au/ePathway/Production/Web/GeneralEnquiry/'+ row.search('a')[0].to_s.split('"')[3]
-  puts date_scraped
-
+  record = {
+    "council_reference" => row.search('td')[0].text.strip,
+    "address" => row.search('td')[1].text + ', ' + suburb,
+    "description" => row.search('td')[3].text.strip,
+    "info_url" => 'https://eservices.ballarat.vic.gov.au/ePathway/Production/Web/GeneralEnquiry/'+ row.search('a')[0].to_s.split('"')[3],
+    "date_scraped" => today}
+  
+  ScraperWiki.save_sqlite(['council_reference'], record)
 end
-#     record = {
-#       "council_reference" => tr.search("td")[1].inner_text.strip,
-#       "address" => tr.search("td")[0].inner_text.strip + ", VIC",
-#       "description" => tr.search("p")[0].inner_text.strip,
-#       "info_url" => tr.search('a')[0].attributes['href'].to_s,
-#       "comment_url" => "mailto:info@brimbank.vic.gov.au",
-#       "date_scraped" => Date.today.to_s
-#     }
-
-#     puts "Saving record " + record['council_reference'] + " - " + record['address']
-# #      puts record
-#     ScraperWiki.save_sqlite(['council_reference'], record)
-#   end
-#   page = agent.get(url + a.attributes['href'].to_s)
-# end
-
-FileUtils.touch('data.sqlite')
