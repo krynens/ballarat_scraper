@@ -14,8 +14,6 @@ page = agent.submit(form, form.buttons[2])
 table = page.search('table.ContentPanel')
 rows = table.search('tr.ContentPanel', 'tr.AlternateContentPanel')
 
-print(rows)
-
 for row in rows do
   address = row.search('td')[1].text
 end
