@@ -19,13 +19,15 @@ table = page.search('table.ContentPanel')
 rows = table.search('tr.ContentPanel', 'tr.AlternateContentPanel')
 
 for row in rows do
-  suburb = row.search('td')[2].text.strip
+  suburb = row.search('td')[2].text.strip.titlecase
   record = {
-    "council_reference" => row.search('td')[0].text.strip,
     "address" => row.search('td')[1].text + ', ' + suburb,
+    "council_reference" => row.search('td')[0].text.strip,
+    "date_scraped" => today,
     "description" => row.search('td')[3].text.strip,
-    "info_url" => 'https://eservices.ballarat.vic.gov.au/ePathway/Production/Web/GeneralEnquiry/'+ row.search('a')[0].to_s.split('"')[3],
-    "date_scraped" => today}
+    "info_url" => 'https://eservices.ballarat.vic.gov.au/ePathway/Production/Web/GeneralEnquiry/'+ row.search('a')[0].to_s.split('"')[3]
+    }
   
   ScraperWiki.save_sqlite(['council_reference'], record)
+  
 end
