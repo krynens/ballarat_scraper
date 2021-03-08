@@ -21,6 +21,7 @@ for row in rows do
   date_scraped = Time.now
   description = row.search('td')[3].text.strip
   info_url = 'https://eservices.ballarat.vic.gov.au/ePathway/Production/Web/GeneralEnquiry/'+ row.search('a')[0].to_s.split('"')[3]
+  puts date_scraped
 
 end
 #     record = {
