@@ -19,7 +19,7 @@ capybara = Capybara::Session.new(:selenium_chrome_headless_morph)
 
 capybara.visit("https:/totaljoy.co/read/")
 
-titles = capybara.find('summary-title')
+titles = capybara.find('div')
 
 print(titles)
 
