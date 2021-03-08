@@ -15,7 +15,8 @@ table = page.search('table.ContentPanel')
 rows = table.search('tr.ContentPanel', 'tr.AlternateContentPanel')
 
 for row in rows do
-  address = row.search('td')[1].text
+  suburb = row.search('td')[2].text.titlecase
+  address = row.search('td')[1].text + suburb
   puts address
 end
 #     record = {
