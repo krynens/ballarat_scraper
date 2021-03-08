@@ -19,7 +19,8 @@ for row in rows do
   address = row.search('td')[1].text + ', ' + suburb
   council_reference = row.search('td')[0].text.strip
   description = row.search('td')[3].text.strip
-  puts council_reference
+  info_url = row.search('a')[0]
+  puts info_url
   puts
 end
 #     record = {
