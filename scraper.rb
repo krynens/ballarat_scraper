@@ -11,7 +11,9 @@ form.radiobuttons[0].click
 go = form.buttons[2]
 
 page = agent.submit(form, form.buttons[2])
-pp page
+form = page.form('aspnetForm')
+
+pp form
 
 # page.search("div.item-list a").each do |a|
 #   page.search("tr.odd, tr.even").each do |tr|
