@@ -7,7 +7,7 @@ page  = agent.get(url)
 
 form = page.form('aspnetForm')
 button = form.buttons[2]
-print(button.text)
+print(button.value)
 
 
 # page.search("div.item-list a").each do |a|
