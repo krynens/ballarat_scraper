@@ -5,7 +5,7 @@ url   = "https://eservices.ballarat.vic.gov.au/ePathway/Production/Web/Generalen
 agent = Mechanize.new
 page  = agent.get(url)
 
-form = page.forms('aspnetForm')
+form = page.form('aspnetForm')
 form.q = 'ruby mechanize'
 pp form
 # page.search("div.item-list a").each do |a|
