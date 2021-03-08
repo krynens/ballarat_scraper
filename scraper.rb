@@ -6,7 +6,6 @@ agent = Mechanize.new
 page  = agent.get(url)
 
 form = page.form('aspnetForm')
-form.q = 'ruby mechanize'
 pp form
 # page.search("div.item-list a").each do |a|
 #   page.search("tr.odd, tr.even").each do |tr|
