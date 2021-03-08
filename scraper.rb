@@ -10,7 +10,7 @@ form = page.form('aspnetForm')
 form.radiobuttons[0].click
 go = form.buttons[2]
 
-page = form.submit(form, form.buttons[2])
+page = agent.submit(form, form.buttons[2])
 pp page
 
 # page.search("div.item-list a").each do |a|
