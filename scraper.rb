@@ -5,8 +5,8 @@ url   = "https://totaljoy.co/read"
 agent = Mechanize.new
 page  = agent.get(url)
 
-title = page.search('div.summary-title').text().strip()
-print(title)
+articles = page.search('div.summary-content sqs-gallery-meta-container preFade fadeIn')
+print(articles)
 
 # page.search("div.item-list a").each do |a|
 #   page.search("tr.odd, tr.even").each do |tr|
