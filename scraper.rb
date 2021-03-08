@@ -20,7 +20,7 @@ table = page.search('table.ContentPanel')
 rows = table.search('tr.ContentPanel', 'tr.AlternateContentPanel')
 
 for row in rows do
-  suburb = row.search('td')[2].text.strip.titlecase
+  suburb = row.search('td')[2].text.strip
   record = {
     "address" => row.search('td')[1].text + ', ' + suburb,
     "council_reference" => row.search('td')[0].text.strip,
