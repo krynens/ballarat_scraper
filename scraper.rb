@@ -18,7 +18,7 @@ for row in rows do
   suburb = row.search('td')[2].text.strip
   address = row.search('td')[1].text + ', ' + suburb
   council_reference = row.search('td')[0].text.strip
-  date_scraped = Time.now
+  date_scraped = Time.today
   description = row.search('td')[3].text.strip
   info_url = 'https://eservices.ballarat.vic.gov.au/ePathway/Production/Web/GeneralEnquiry/'+ row.search('a')[0].to_s.split('"')[3]
   puts date_scraped
