@@ -19,7 +19,7 @@ for row in rows do
   address = row.search('td')[1].text + ', ' + suburb
   council_reference = row.search('td')[0].text.strip
   description = row.search('td')[3].text.strip
-  info_url = row.search('a')[0].to_s.split('"')[4]
+  info_url = row.search('a')[0].to_s.split('"')[3]
   puts info_url
   puts
 end
