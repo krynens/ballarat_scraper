@@ -18,6 +18,7 @@ print(rows)
 
 for row in rows do
   address = row.search('td')[1].text
+end
 #     record = {
 #       "council_reference" => tr.search("td")[1].inner_text.strip,
 #       "address" => tr.search("td")[0].inner_text.strip + ", VIC",
