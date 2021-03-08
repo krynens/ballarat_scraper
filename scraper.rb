@@ -14,7 +14,7 @@ page = agent.submit(form, form.buttons[2])
 table = page.search('table.ContentPanel')
 rows = table.search('tr')
 
-print(table)
+print(rows[1])
 
 # page.search("div.item-list a").each do |a|
 #   page.search("tr.odd, tr.even").each do |tr|
