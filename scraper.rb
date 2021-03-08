@@ -12,8 +12,8 @@ go = form.buttons[2]
 
 form.submit(go)
 
-form = page.form('aspnetForm')
-pp form
+form2 = page.form('aspnetForm')
+pp form2
 
 # page.search("div.item-list a").each do |a|
 #   page.search("tr.odd, tr.even").each do |tr|
