@@ -1,6 +1,8 @@
 require 'scraperwiki'
 require 'mechanize'
 
+today = Time.now.strftime('%Y-%m%d')
+
 url   = "https://eservices.ballarat.vic.gov.au/ePathway/Production/Web/Generalenquiry/enquirylists.aspx"
 agent = Mechanize.new
 page  = agent.get(url)
@@ -18,7 +20,7 @@ for row in rows do
   suburb = row.search('td')[2].text.strip
   address = row.search('td')[1].text + ', ' + suburb
   council_reference = row.search('td')[0].text.strip
-  date_scraped = Time.today
+  date_scraped = today
   description = row.search('td')[3].text.strip
   info_url = 'https://eservices.ballarat.vic.gov.au/ePathway/Production/Web/GeneralEnquiry/'+ row.search('a')[0].to_s.split('"')[3]
   puts date_scraped
