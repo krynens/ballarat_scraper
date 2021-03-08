@@ -16,6 +16,7 @@ rows = table.search('tr.ContentPanel', 'tr.AlternateContentPanel')
 
 for row in rows do
   address = row.search('td')[1].text
+  puts address
 end
 #     record = {
 #       "council_reference" => tr.search("td")[1].inner_text.strip,
