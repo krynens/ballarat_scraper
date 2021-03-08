@@ -15,7 +15,7 @@ table = page.search('table.ContentPanel')
 rows = table.search('tr.ContentPanel', 'tr.AlternateContentPanel')
 
 for row in rows do
-  suburb = row.search('td')[2].text.titlecase
+  suburb = row.search('td')[2].text.titleize
   address = row.search('td')[1].text + suburb
   puts address
 end
