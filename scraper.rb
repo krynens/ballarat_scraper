@@ -8,7 +8,9 @@ page  = agent.get(url)
 form = page.form('aspnetForm')
 
 form.radiobuttons[0].click
-form.buttons[2].click
+go = form.buttons[2]
+
+form.submit(go)
 
 form = page.form('aspnetForm')
 pp form
