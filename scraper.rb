@@ -12,7 +12,7 @@ go = form.buttons[2]
 
 page = agent.submit(form, form.buttons[2])
 row = page.search('tr.ContentPanel')
-put row
+print(row)
 
 # page.search("div.item-list a").each do |a|
 #   page.search("tr.odd, tr.even").each do |tr|
